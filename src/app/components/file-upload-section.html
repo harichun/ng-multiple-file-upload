@@ -1,0 +1,20 @@
+<section [attr.id]="name.toLowerCase()">
+  <div class="row">
+    <tabset>
+      <tab *ngFor="let desc of tabs" heading="{{desc.heading}}" (select)="select($event)">
+        <div class="card card-block panel panel-default panel-body">
+
+          <simple-demo></simple-demo>
+
+          <br>
+
+          <div class="row" style="margin: 0px;">
+           
+          </div>
+        </div>
+      </tab>
+    </tabset>
+  </div>
+
+ 
+</section>

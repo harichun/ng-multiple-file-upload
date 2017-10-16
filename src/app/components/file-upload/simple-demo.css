@@ -1,0 +1,53 @@
+.row1{
+       width: 80%; /* Full-width */
+    font-size: 16px; /* Increase font-size */
+    padding: 12px 20px 12px 40px; /* Add some padding */
+    border: 1px solid #ddd; /* Add a grey border */
+   
+}
+
+#sav {
+    
+    font-size: 16px; /* Increase font-size */
+    padding: 12px 20px 12px 40px; /* Add some padding */
+    border: 1px solid ; /* Add a grey border */
+    margin-bottom: 12px; /* Add some space below the input */
+    background-color:white;
+    border: 1px solid #236093; 
+    color:#236093;
+    
+}
+#sav:focus {
+    
+    font-size: 16px; /* Increase font-size */
+    padding: 12px 20px 12px 40px; /* Add some padding */
+    border: 1px solid ; /* Add a grey border */
+    margin-bottom: 12px; /* Add some space below the input */
+    background-color: #236093;
+    color: white;
+    
+}
+#cancel {
+    
+ font-size: 16px; /* Increase font-size */
+    padding: 12px 20px 12px 40px; /* Add some padding */
+    border: 1px solid ; /* Add a grey border */
+    margin-bottom: 12px; /* Add some space below the input */
+    background-color:white;
+    border: 1px solid #236093; 
+    color:#236093;
+    
+}
+#cancel:focus {
+    
+    font-size: 16px; /* Increase font-size */
+    padding: 12px 20px 12px 40px; /* Add some padding */
+    border: 1px solid ; /* Add a grey border */
+    margin-bottom: 12px; /* Add some space below the input */
+    background-color: #236093;
+    color: white;
+    
+}
+.progress{
+    color:light-grey; 
+}

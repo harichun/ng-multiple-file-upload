@@ -1,0 +1,128 @@
+<style>
+    .my-drop-zone { border: dotted 3px lightgray; }
+    .nv-file-over { border: dotted 3px red; } /* Default class applied to drop zones on over */
+    .another-file-over-class { border: dotted 3px green; }
+
+    html, body { height: 100%; }
+</style>
+
+<div class="container" style="width:100%; border: 1px solid grey;" >
+ <div class = "cont">
+    <h4>Upload a Batch SpreadSheet</h4>
+    <p> With bulk upload , you can upload multiple files at once</p>
+    <p>After Upload you will be provided a file for download to preview </p>
+     <br/>
+     <p> Supported Batch file formats are : xls </p>
+
+  <div> <b> <p *ngIf='uploader?.queue?.length'>{{uploader?.queue?.length}} {{ uploader?.queue?.length ==1 ? 'Attached file' : 'Attached files' }} </p> </b> </div>
+  <table class="table">
+                <thead>
+             
+                </thead>
+                <tbody>
+                <tr *ngFor="let item of uploader.queue">
+                    <td>{{ item?.file?.name }}</td>
+                    <td *ngIf="uploader.isHTML5" nowrap>{{ item?.file?.size/1024/1024 | number:'.2' }} MB</td>
+                  
+                    <td class="text-center">                      
+                        <span *ngIf="item.isCancel"><i class="glyphicon glyphicon-remove"></i></span>
+                       
+                    </td>
+                    <td nowrap>
+                   
+                        <button type="button" class="btn btn-warning btn-xs"
+                                (click)="item.cancel()" [disabled]="!item.isUploading">
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </button>
+                     
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+ </div>
+        <div class ="row1">          
+
+          Drag your file here 
+          <br> <br>
+          or 
+          <br>
+          <br>
+           <div>
+            <input type="file" ng2FileSelect [uploader]="uploader" multiple  /><br/>
+
+            <table>
+            <thead>
+            </thead>
+            <tbody>
+
+                <tr *ngFor='let item1 of uploader.queue'>
+                    <td *ngIf='item1.isUploading'>
+                        <i class="glyphicon glyphicon-refresh"></i> <br/>
+                          Uploading   {{ item1?.file?.name }}
+
+                    </td>
+                   
+                </tr>  
+                      
+            </table>
+
+              <div>
+                    
+                    <div  *ngIf = 'uploader.progress<100' class="progress" style=""> 
+                        <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': uploader.progress + '%' }"></div>
+                    </div>
+                </div>
+
+                      <div *ngIf= 'uploader.progress==100'>                
+                     <i class="glyphicon glyphicon-ok-sign"></i> <br/>
+               Upload Successfull  
+               </div> 
+
+
+           </div>
+
+      
+          </div> 
+
+        
+
+    
+    <div class="row">
+    
+     
+
+        <div  style="margin-bottom: 40px">
+
+       
+           
+
+            <table class="table">
+                <thead>
+                <tr>
+                    
+                
+                </tr>
+                </thead>
+                <tbody>
+               
+                </tbody>
+            </table>
+
+            <div>
+            
+                <button type="button" id="cancel"
+                        (click)="uploader.cancelAll()" [disabled]="!uploader.isUploading">
+                   Cancel
+                </button>
+                  <button type="button" id="sav"
+                        (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">
+                   Upload
+                </button>
+             
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
